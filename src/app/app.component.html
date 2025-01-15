@@ -1,0 +1,29 @@
+<div class="container">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <a routerLink="/"><img src="../assets/msapps-logo.png" style="height: 60px" alt="MSApps Logo"></a>
+        <div class="navbar-collapse ms-3" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a routerLink="/" routerLinkActive="active">Home</a>
+                    |
+                    <a routerLink="/users" routerLinkActive="active">Users</a>
+                    |
+                    <a routerLink="/users/new" routerLinkActive="active">New User Form</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="text-center" *ngIf="currentRoute === '/'">
+        <h1 class="display-4">Welcome!</h1>
+        <p>Press the button to start.</p>
+        <button [routerLink]="'/users'" type="button" class="btn btn-primary">
+            Show Users
+        </button>
+    </div>
+    <router-outlet />
+
+
+</div>

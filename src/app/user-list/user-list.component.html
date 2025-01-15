@@ -1,0 +1,33 @@
+<div class="d-flex w-100 gap-3">
+    <div class="card custom-shadow text-center" style="flex: 1; flex-basis: 100%;">
+        <div class="card-header">
+            <h4 class="card-title m-1">Users List</h4>
+        </div>
+        <div class="card-body">
+            <table class="table user-table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users" [routerLink]="['/users', user.id]" routerLinkActive="active">
+                        <td> {{user.id}} </td>
+                        <td> {{user.name}} </td>
+                        <td>
+                            <button class="btn btn-primary btn-sm me-3" (click)="editUser($event, user.id)">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm" (click)="deleteUser($event, user.id)">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>
